@@ -1,0 +1,26 @@
+MERN
+mongo
+react
+express 
+node
+
+frontend
+node backend
+
+browser:
+
+js ->server side: node js runtime
+nodejs -->packages..
+
+express: API creation
+express middewalre ramework node + express
+
+
+npm init --y
+code .
+app.js file create
+
+
+node app.js
+
+import --> require

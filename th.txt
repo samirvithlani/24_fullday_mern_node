@@ -24,3 +24,12 @@ app.js file create
 node app.js
 
 import --> require
+
+express application...
+express server..
+
+devtool
+
+npm i nodemon -g  ---> it will not add entry in packag.json
+mac  sudo npm i nodemon -g
+npm i nodemon --dev  -->it will  add entry in packag.json in devDepedency

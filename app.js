@@ -1,20 +1,14 @@
-console.log("App file loaded...");
-const user = require("./user"); //export.. {}
-const emp = require("./emp") //
-const { studentDetail,year} = require("./student")
-const product = require("./product")
+const express = require("express")
+//create object | referance of express
+const app = express()
 
-console.log(user);
-console.log(user.userName)
-console.log(user.userAge)
 
-console.log(emp)
-// emp() //works only 1 funciton exported...
-emp.getEmployee()
-emp.saveEmployee()
 
-studentDetail()
-console.log(year)
 
-var x = product.getProduct("iphone")
-console.log(x)
+//server create...|| call
+//express server api create || node native ---> http
+//http --> own... || express create...
+const PORT = 3000
+app.listen(PORT,()=>{
+    console.log(`server started on PORT ${PORT}`)
+})

@@ -33,3 +33,10 @@ devtool
 npm i nodemon -g  ---> it will not add entry in packag.json
 mac  sudo npm i nodemon -g
 npm i nodemon --dev  -->it will  add entry in packag.json in devDepedency
+
+
+GET : database -->data fetch ---> frontend....
+POST : frontend <<<--- data  <<->>> database
+PUT  : update
+DELETE : delete
+PATCH  : parital update

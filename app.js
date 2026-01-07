@@ -2,6 +2,30 @@ const express = require("express")
 //create object | referance of express
 const app = express()
 
+//API CREATE..
+
+//localhost:3000/test
+
+app.get("/test",(req,res)=>{
+
+    console.log("test api called...")
+    res.send("test api called..")
+
+})
+const users = [
+    {id:1,name:"amit",age:23},
+    {id:2,name:"raj",age:25},
+    {id:3,name:"jay",age:22},
+]
+//localhost:3000/users
+app.get("/users",(req,res)=>{
+
+    res.json({
+        message:"user api called....",
+        data:users
+    })
+})
+
 
 
 

@@ -6,6 +6,10 @@ const dbConnection = require("./src/utils/dbConnection")
 //call dbConnection function
 dbConnection.dbConnection()
 
+//require userSchema
+
+const userSchema = require("./src/models/UserModel")
+
 
 
 

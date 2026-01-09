@@ -1,3 +1,33 @@
+//API CREATE..
+//localhost:3000/test
+
+app.get("/test",(req,res)=>{
+
+    console.log("test api called...")
+    res.send("test api called..")
+
+})
+const users = [
+    {id:1,name:"amit",age:23},
+    {id:2,name:"raj",age:25},
+    {id:3,name:"jay",age:22},
+]
+//localhost:3000/users
+app.get("/users",(req,res)=>{
+
+    res.json({
+        message:"user api called....",
+        data:users
+    })
+})
+
+
+
+
+
+
+
+
 MERN
 mongo
 react
@@ -40,3 +70,33 @@ POST : frontend <<<--- data  <<->>> database
 PUT  : update
 DELETE : delete
 PATCH  : parital update
+
+folder-stru
+ src
+  controllers
+  models
+  utils
+  routes
+
+
+
+database mongodb :
+nodejs --> package --> mongodb,mongoose
+
+mongoose is orm package of mongodb
+model --> mongodb 1 collection bind
+
+abc database connected...
+users collection[table] <<-->> userModel class
+users == userModel object
+
+---------------------------------------->>
+
+folder-stru
+ src
+  controllers
+  models
+  utils
+  routes
+
+npm i mongoose

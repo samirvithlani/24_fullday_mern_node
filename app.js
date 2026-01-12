@@ -8,7 +8,21 @@ dbConnection.dbConnection()
 
 //require userSchema
 
-const userSchema = require("./src/models/UserModel")
+const userSchema = require("./src/models/UserModel") // db.users.find() userSchema.find()
+//api --> database record fetch..
+
+
+app.get("/users",async(req,res)=>{
+
+    //query
+    //db.users.find() ==> userSchema.find()
+    const users = await userSchema.find() // find funcntion will return promise 
+
+    res.json({
+        message:"user api called...",
+        data:users
+    })
+})
 
 
 

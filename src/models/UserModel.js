@@ -10,7 +10,6 @@ const userSchema = new Schema({
 //connect userSchema with users collection in connected database
 
 //model("collectionName",schemaObject)
-mongoose.model("users",userSchema)
+module.exports = mongoose.model("users",userSchema)
 //if users collection is not available it will create it self..
 //to use userSchema in other files we need to export..
-module.exports = userSchema

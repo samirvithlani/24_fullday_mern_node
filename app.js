@@ -1,13 +1,17 @@
 const express = require("express")
 //create object | referance of express
 const app = express()
+app.use(express.json()) //global middleware apply json accept 
+
 //required dbConnection file and get connection here...
 const dbConnection = require("./src/utils/dbConnection")
 //call dbConnection function
 dbConnection.dbConnection()
 
 const userRoutes = require("./src/routes/UserRoutes")
-app.use(userRoutes)
+//app.use(userRoutes)
+app.use("/user",userRoutes)
+
 
 
 

@@ -6,6 +6,19 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema({
     //in future will add fileds, variable names...
+    name:{
+        type:String
+    },
+    age:{
+        type:Number
+    },
+    email:{
+        type:String
+    },
+    status:{
+        type:Boolean,
+        default:true
+    }
 })
 //connect userSchema with users collection in connected database
 

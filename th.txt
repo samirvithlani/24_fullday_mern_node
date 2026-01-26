@@ -123,3 +123,15 @@ folder-stru
 npm i mongoose
 
 app.js --> rroutes ==> controller ---> schema
+
+
+userModel fileds:
+userControlelr -->get function"
+userRoutes --> controller required:
+get api create
+
+app.js -->
+express.json()
+
+userRoutes reqyured
+userRoutes use

@@ -57,35 +57,62 @@ const deleteUser = async (req, res) => {
   console.log("id", id);
 };
 
-const updateUser = async(req,res)=>{
+// const updateUser = async(req,res)=>{
 
-    const id = req.params.id;//where
-    //const data  = req.body; //what
-    //console.log("id",id)
-    //console.log("data",data)
+//     const id = req.params.id;//where
+//     //const data  = req.body; //what
+//     //console.log("id",id)
+//     //console.log("data",data)
 
-    //const updatedUser = await userSchema.findByIdAndUpdate(id,req.body)
-    const updatedUser = await userSchema.findByIdAndUpdate(id,req.body,{new:true})
-    if(updatedUser){
-        res.json({
-            message:"user updated..",
-            data:updatedUser
-        })
+//     //const updatedUser = await userSchema.findByIdAndUpdate(id,req.body)
+//     const updatedUser = await userSchema.findByIdAndUpdate(id,req.body,{new:true})
+//     if(updatedUser){
+//         res.json({
+//             message:"user updated..",
+//             data:updatedUser
+//         })
+//     }
+//     else{
+//         res.json({
+//             message:"user not found..",
+
+//         })
+//     }
+
+// }
+
+const updateUser = async (req, res) => {
+  const id = req.params.id; //where
+  //const data  = req.body; //what
+  //console.log("id",id)
+  //console.log("data",data)
+
+  //const updatedUser = await userSchema.findByIdAndUpdate(id,req.body)
+  try {
+    const updatedUser = await userSchema.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (updatedUser) {
+      res.json({
+        message: "user updated..",
+        data: updatedUser,
+      });
+    } else {
+      res.json({
+        message: "user not found..",
+      });
     }
-    else{
-        res.json({
-            message:"user not found..",
-            
-        })
-    }
-
     
-
-}
-
+  } catch (err) {
+    res.json({
+      message: "error while update user..",
+      err: err,
+    });
+  }
+};
 module.exports = {
   getUsers,
   addUser,
   deleteUser,
-  updateUser
+  updateUser,
 };

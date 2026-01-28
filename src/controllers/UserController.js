@@ -29,11 +29,17 @@ const addUser = async (req, res) => {
   //auth -->headers
   console.log("rq.body....", req.body);
   //userSchema.insertOne
+  try{
   const savedUser = await userSchema.create(req.body);
   res.json({
     message: "user addedd",
     data: savedUser,
   });
+}catch(err){
+  res.json({
+    err:err
+  })
+}
 };
 const deleteUser = async (req, res) => {
   //delete from table where id = ?
@@ -110,9 +116,37 @@ const updateUser = async (req, res) => {
     });
   }
 };
+//check if hobby is alreday available dont add it...
+const addHobby = async(req,res)=>{
+  const hobby = req.body.hobby;
+  const id = req.params.id;
+
+  try{
+      const updatedUser = await userSchema.findByIdAndUpdate(id,{$push:{hobbiess:hobby}},{new:true})
+      if(updatedUser){
+        res.json({
+          message:"hobby added..",
+          data:updatedUser
+        })
+      }
+      else{
+        res.json({
+          message:"user not found..",
+        })
+      }
+  }catch(err){
+    res.json({
+      message:"error while add hobby..",
+      err:err
+    })
+  }
+
+}
+//pulll --> if hobby is available then remove it
 module.exports = {
   getUsers,
   addUser,
   deleteUser,
   updateUser,
+  addHobby,
 };

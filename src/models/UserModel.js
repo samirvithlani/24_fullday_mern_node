@@ -18,6 +18,13 @@ const userSchema = new Schema({
     status:{
         type:Boolean,
         default:true
+    },
+    hobbiess:[{
+        type:String
+    }],
+    bloodGroup:{
+        type:String,
+        enum:["A+","B+","A-","B-"]
     }
 })
 //connect userSchema with users collection in connected database

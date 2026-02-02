@@ -137,3 +137,7 @@ userRoutes reqyured
 userRoutes use
 
 :middleware
+
+
+2 middewalre:
+1 -->next ->2 --< next

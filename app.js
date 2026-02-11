@@ -12,6 +12,8 @@ const userRoutes = require("./src/routes/UserRoutes")
 //app.use(userRoutes)
 app.use("/user",userRoutes)
 
+const uploadRoutes = require("./src/routes/UploadRoutes")
+app.use("/upload",uploadRoutes)
 
 
 

@@ -141,3 +141,6 @@ userRoutes use
 
 2 middewalre:
 1 -->next ->2 --< next
+
+multer:
+npm i multer

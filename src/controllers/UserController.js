@@ -27,10 +27,12 @@ const addUser = async (req, res) => {
   //object -->body
   //url -->params,query
   //auth -->headers
+  console.log("req.file",req.file) //req.file.path
   console.log("rq.body....", req.body);
   //userSchema.insertOne
   try{
-  const savedUser = await userSchema.create(req.body);
+  //const savedUser = await userSchema.create(req.body);
+  const savedUser = await userSchema.create({...req.body,profilpicPath:req.file.path});
   res.json({
     message: "user addedd",
     data: savedUser,

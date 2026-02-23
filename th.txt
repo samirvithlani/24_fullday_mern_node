@@ -144,3 +144,11 @@ userRoutes use
 
 multer:
 npm i multer
+<<<------>>>>
+
+----->>>>>>>
+
+flat : name, price,sqfeet : -->
+controller -->
+routers --> create get
+app.js

@@ -1,4 +1,5 @@
 const userSchema = require("../models/UserModel");
+const cloudinaryUtils = require("../utils/cloudinaryUtils")
 
 // app.get("/users",async(req,res)=>{
 
@@ -32,7 +33,14 @@ const addUser = async (req, res) => {
   //userSchema.insertOne
   try{
   //const savedUser = await userSchema.create(req.body);
-  const savedUser = await userSchema.create({...req.body,profilpicPath:req.file.path});
+  //cloud image
+
+  const cloudinaryresponse = await cloudinaryUtils.uploadToCloud(req.file.path)
+  console.log(cloudinaryresponse.secure_url)
+  //{....secure_url}
+
+  //const savedUser = await userSchema.create({...req.body,profilpicPath:req.file.path});
+  const savedUser = await userSchema.create({...req.body,profilpicPath:cloudinaryresponse.secure_url});
   res.json({
     message: "user addedd",
     data: savedUser,

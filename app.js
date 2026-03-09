@@ -1,6 +1,8 @@
 const express = require("express")
 //create object | referance of express
 const app = express()
+const cors = require("cors")
+app.use(cors())//all ports are allow
 app.use(express.json()) //global middleware apply json accept 
 
 //required dbConnection file and get connection here...
@@ -14,6 +16,11 @@ app.use("/user",userRoutes)
 
 const uploadRoutes = require("./src/routes/UploadRoutes")
 app.use("/upload",uploadRoutes)
+
+
+const userRoutesv2 = require("./src/routes/UserRoutesv2")
+app.use("/userv2",userRoutesv2)
+
 
 
 

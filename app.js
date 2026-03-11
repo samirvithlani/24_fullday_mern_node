@@ -22,7 +22,8 @@ const userRoutesv2 = require("./src/routes/UserRoutesv2")
 app.use("/userv2",userRoutesv2)
 
 
-
+const propertyRoutes = require("./src/routes/PropertyRoutes")
+app.use("/prop",propertyRoutes)
 
 
 //server create...|| call

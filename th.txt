@@ -152,3 +152,8 @@ flat : name, price,sqfeet : -->
 controller -->
 routers --> create get
 app.js
+
+------------------
+file uploading...
+multer:
+npm i multer

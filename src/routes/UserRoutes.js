@@ -4,10 +4,11 @@ const testMiddleware = require("../middleware/TestMiddleware")
 const validatioMiddleware = require("../middleware/zodValidationMiddleware")
 const userValidationSchema = require("../validationschema/UserValidationSchema")
 const uploadMiddleware = require("../middleware/UploadMiddleware")
+const validateToken = require("../middleware/AuthMiddleware")
 
 // app.get("/users",async(req,res)=>{
 //app --->alter-->router
-router.get("/users",testMiddleware.testingMiddleware,testMiddleware.testingMiddleware1,userController.getUsers)
+router.get("/users",validateToken,userController.getUsers)
 //router.post("/user",validatioMiddleware(userValidationSchema),userController.addUser)
 
 router.post("/user",uploadMiddleware.upload.single("file"),userController.addUser)

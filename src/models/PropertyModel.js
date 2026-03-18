@@ -10,6 +10,10 @@ const propertySchema = new Schema({
     },
     propertyImages:{
         type:[String]
+    },
+    ownerId:{
+        type:mongoose.Types.ObjectId,
+        ref:"usersv2"
     }
 })
 module.exports = mongoose.model("property",propertySchema)

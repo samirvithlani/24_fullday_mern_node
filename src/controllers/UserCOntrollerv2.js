@@ -1,5 +1,7 @@
 const userSchema = require("../models/UserModelv2")
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+const secret = "secret"
 
 const registerUser = async(req,res)=>{
 
@@ -22,7 +24,46 @@ const registerUser = async(req,res)=>{
         })
     }
 }
+const loginUser = async(req,res)=>{
+
+
+    const {email,password}=req.body;
+    const foundUserFromEmail = await userSchema.findOne({email:email})
+    if(foundUserFromEmail){
+
+        const isMatch = await bcrypt.compare(password,foundUserFromEmail.password)
+        console.log(isMatch)
+        if(isMatch){
+            //token gen
+            //const token = jwt.sign(foundUserFromEmail.toObject(),secret)
+            const token = jwt.sign(foundUserFromEmail.toObject(),secret,{expiresIn:60})
+            res.status(200).json({
+                message:"login success",
+                //data:foundUserFromEmail,
+                //role:foundserFromEmail.role
+                token:token,
+                role:"owner"
+            })
+        }
+        else{
+            res.status(401).json({
+                message:"invalid credentials",
+                
+                //role:foundserFromEmail.role
+            })
+        }
+
+    }
+    else{
+        res.status(404).json({
+            message:"user not found",
+        })
+    }
+
+
+}
 
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser
 }

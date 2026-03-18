@@ -157,3 +157,14 @@ app.js
 file uploading...
 multer:
 npm i multer
+
+AUTH MODULE:
+MVC: email password:
+API SECURE:- --> login: -->token:
+
+JSON WEB token: -->user object->token -->secret
+npm i jsonwebtoken
+
+
+token -->gatepas --> access
+:Bearer Token
